@@ -11,6 +11,11 @@ function hover(e) {
     e.target.classList.add("black");
 }
 
+// function rgba(e) {
+//     let red = Math.round(Math.random() * 25)
+//     e.target.style.backgroundColor = 
+// }
+
 function draw(count) {
     for (let i = 0; i < count; i++) {
         for (let j = 0; j < count; j++) {
@@ -27,6 +32,14 @@ function draw(count) {
             square.addEventListener("mouseover", hover);
         }
     }
+}
+
+function rgb() {
+    let square = document.querySelectorAll(".square");
+    square.forEach(square => square.removeEventListener("mouseover", hover));
+    square.forEach(square => square.addEventListener("mouseover", (e) => {
+        e.target.style.backgroundColor = `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`
+    }));
 }
 
 function clear() {
@@ -46,8 +59,11 @@ function clear() {
 draw(24);
 
 const clearBtn = document.querySelector(".clear");
+const rgbBtn = document.querySelector(".rgb");
 
 clearBtn.addEventListener("click", clear);
+rgbBtn.addEventListener("click", rgb);
+
 
 const square = document.querySelectorAll(".square");
 // square.forEach(square => square.addEventListener("mouseover", hover));
