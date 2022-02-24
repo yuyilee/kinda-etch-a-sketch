@@ -34,6 +34,20 @@ function draw(count) {
     }
 }
 
+function grayscale() {
+    let square = document.querySelectorAll(".square");
+    square.forEach(square => square.removeEventListener("mouseover", hover));
+    square.forEach(square => square.removeEventListener("mouseover", rgb));
+    square.forEach(square => { 
+        square.style.backgroundColor = "#000";
+        square.style.opacity = "0";
+        square.addEventListener("mouseenter", (e) => {
+            let curr = +e.target.style.opacity;
+            curr += .1;
+            e.target.style.opacity = curr;
+        })
+    })
+}
 function rgb() {
     let square = document.querySelectorAll(".square");
     square.forEach(square => square.removeEventListener("mouseover", hover));
@@ -60,9 +74,11 @@ draw(24);
 
 const clearBtn = document.querySelector(".clear");
 const rgbBtn = document.querySelector(".rgb");
+const grayscaleBtn = document.querySelector(".gray");
 
 clearBtn.addEventListener("click", clear);
 rgbBtn.addEventListener("click", rgb);
+grayscaleBtn.addEventListener("click", grayscale);
 
 
 const square = document.querySelectorAll(".square");
