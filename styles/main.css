@@ -350,6 +350,10 @@ template {
   display: none;
 }
 
+* {
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
 body {
   display: flex;
   justify-content: center;
@@ -358,6 +362,13 @@ body {
 
 .container {
   width: 968px;
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
   /* height: 100vh;
   background: #bada55; */
+}
+
+.square {
+  border: 1px solid black;
 }
